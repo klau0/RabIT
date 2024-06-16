@@ -1,0 +1,12 @@
+DirectoryIndex View/index.php
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^advertisements$ http://localhost/RabIT/View/advertisements.php [NC]
+
+RewriteRule ^users$ http://localhost/RabIT/View/users.php [NC]
+
+RewriteRule ^index$ http://localhost/RabIT/View/index.php [NC,L]
