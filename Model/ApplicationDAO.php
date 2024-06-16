@@ -4,6 +4,11 @@ require_once "ConnectionToDB.php";
 require_once "User.php";
 require_once "Advertisement.php";
 
+/**
+ * The DAO class used to get data from the database.
+ *
+ * It implements a singleton pattern.
+ */
 class applicationDAO {
     private mysqli $conn;
     private static applicationDAO $instance;
@@ -12,6 +17,11 @@ class applicationDAO {
         $this->conn = &ConnectionToDB::getConnection();
     }
 
+    /**
+     * This method gets the single instance of this class
+     *
+     * @return applicationDAO
+     */
     public static function getInstance(): applicationDAO{
         if (!isset(self::$instance)){
             self::$instance = new applicationDAO();
@@ -19,6 +29,9 @@ class applicationDAO {
         return self::$instance;
     }
 
+    /**
+     * @return User[] All users as a User object
+     */
     public function getUsers(): array{
         $users = array();
 
@@ -34,6 +47,9 @@ class applicationDAO {
         return $users;
     }
 
+    /**
+     * @return Advertisement[] All advertisements as an Advertisement object
+     */
     public function getAds(): array{
         $ads = array();
 
@@ -49,7 +65,11 @@ class applicationDAO {
         return $ads;
     }
 
-    public function getUser($uid): User{
+    /**
+     * @param int $uid The id of a User
+     * @return User The User with the given id
+     */
+    public function getUser(int $uid): User{
         $user = null;
 
         $select = "SELECT * FROM ads.users WHERE id = $uid";

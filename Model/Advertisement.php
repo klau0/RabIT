@@ -1,11 +1,19 @@
 <?php
 
+/**
+ * This class represents an Advertisement.
+ */
 class Advertisement{
     private int $id;
     private int $userid;
     private string $title;
 
-    public function __construct($id, $userid, $title){
+    /**
+     * @param int $id
+     * @param int $userid The id of the User who created the Advertisement
+     * @param string $title
+     */
+    public function __construct(int $id, int $userid, string $title){
         $this->id = $id;
         $this->userid = $userid;
         $this->title = $title;
@@ -25,15 +33,15 @@ class Advertisement{
     }
 
 // setters
-    public function setId($id){
+    public function setId(int $id){
         $this->id = $id;
     }
 
-    public function setUserid($userid){
+    public function setUserid(int $userid){
         $this->userid = $userid;
     }
 
-    public function setTitle($title){
+    public function setTitle(string $title){
         $this->title = $title;
     }
 }

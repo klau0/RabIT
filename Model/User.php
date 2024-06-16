@@ -1,10 +1,17 @@
 <?php
 
+/**
+ * This class represents a User.
+ */
 class User {
     private int $id;
     private string $name;
 
-    public function __construct($id, $name){
+    /**
+     * @param int $id
+     * @param string $name
+     */
+    public function __construct(int $id, string $name){
         $this->id = $id;
         $this->name = $name;
     }
@@ -19,11 +26,11 @@ class User {
     }
 
 // setters
-    public function setId($id){
+    public function setId(int $id){
         $this->id = $id;
     }
 
-    public function setName($name){
+    public function setName(string $name){
         $this->name = $name;
     }
 }
